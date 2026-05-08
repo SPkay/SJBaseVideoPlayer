@@ -90,7 +90,9 @@ typedef void (^NetworkUnreachable) (_Reachability * reachability);
 
 #import <sys/socket.h>
 #import <netinet/in.h>
+#if !__has_feature(modules) && __has_include(<netinet6/in6.h>)
 #import <netinet6/in6.h>
+#endif
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>
